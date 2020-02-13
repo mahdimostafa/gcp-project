@@ -35,12 +35,7 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 
 ```
 
-# Release management flow:
-
-
-
-
-
+# Release management flow
 
 # Cloud Composer (airflow)
 
