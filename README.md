@@ -29,9 +29,9 @@ dbt run --profile dev_gcp --models count_of_submissions
 dbt run --profile dev_gcp --models most_upvoted_and_comments
 
 
-Rows should return from running:
-select * from count_of_submissions limit 10;
-select * from most_upvoted_and_comments limit 10;
+Rows should return from running in BigQuery:
+select * from data_mart.count_of_submissions limit 10;
+select * from data_mart.most_upvoted_and_comments limit 10;
 
 ```
 
