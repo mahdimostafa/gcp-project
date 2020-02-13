@@ -42,3 +42,5 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 # Cloud Composer (airflow)
 
 # Data Architecture
+
+![alt text](/Users/mahdimostafa/Desktop/Dataflow.png)
