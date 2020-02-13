@@ -37,6 +37,8 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 
 # Release management flow
 
+![alt text](https://i.stack.imgur.com/hlYjj.png)
+
 # Cloud Composer (airflow)
 
 # Data Architecture
