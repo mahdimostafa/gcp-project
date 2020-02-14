@@ -43,4 +43,4 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 
 # Data Architecture
 
-![alt text](/Users/mahdimostafa/Desktop/Dataflow.png)
+![alt text](https://github.com/mahdimostafa/gcp-project/blob/master/data.png?raw=true)
