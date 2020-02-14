@@ -37,9 +37,16 @@ t0 = BashOperator(
 )
 
 t1 = BashOperator(
-    task_id='dbt_run',
-    bash_command='dbt run --profile prod-gcp --models tag:daily',
+    task_id='most_upvoted_and_comments',
+    bash_command='dbt run --profile prod-gcp --models most_upvoted_and_comments',
+    dag=dag
+)
+
+t2 = BashOperator(
+    task_id='count_of_submissions',
+    bash_command='dbt run --profile prod-gcp --models count_of_submissions',
     dag=dag
 )
 
 t0 >> t1
+t0 >> t2
