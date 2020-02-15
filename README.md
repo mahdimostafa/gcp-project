@@ -1,4 +1,4 @@
-# gcp-project
+# GCP-Project
 starter project using gcp &amp; dbt
 
 
