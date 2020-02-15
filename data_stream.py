@@ -3,6 +3,7 @@ import praw
 from psaw import PushshiftAPI
 import pandas as pd
 import datetime as dt
+from datetime import timedelta
 import emoji
 from unidecode import unidecode
 from google.cloud import storage
@@ -49,9 +50,10 @@ def top_sub(api):
             "created": []
             }
     
-    start_epoch=int(dt.datetime.now().timestamp())
+    today_start=dt.datetime.today() - timedelta(days=1)
+    start_epoch=int(today_start.timestamp())
 
-    for submission in api.search_submissions(before=start_epoch,
+    for submission in api.search_submissions(after=start_epoch,
                                 subreddit='dubai',
                                 filter=['title','subreddit', 'score', 'id', 'url', 'comms_num', 'created'],
                                 limit=100
