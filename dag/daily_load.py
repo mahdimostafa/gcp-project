@@ -17,7 +17,7 @@ default_args = {
     'owner': 'refresh scripts',
     'depends_on_past': False,
     'on_failure_callback': None,
-    'start_date': '2019-11-19',
+    'start_date': '2020-02-16',
     'catchup': False,
     'retries': 0,
 }
@@ -32,19 +32,19 @@ dag = DAG('data_mart_refresh_daily',
 
 t0 = BashOperator(
     task_id='python_load',
-    bash_command='python3 dubai_stream.py',
+    bash_command='cd /home/mahdi_mostafa_2012/git/gcp-project/ && python3 data_stream.py',
     dag=dag
 )
 
 t1 = BashOperator(
     task_id='most_upvoted_and_comments',
-    bash_command='dbt run --profile prod-gcp --models most_upvoted_and_comments',
+    bash_command='cd /home/mahdi_mostafa_2012/git/gcp-project/dubai_api && dbt run --profile big-query --models most_upvoted_and_comments',
     dag=dag
 )
 
 t2 = BashOperator(
     task_id='count_of_submissions',
-    bash_command='dbt run --profile prod-gcp --models count_of_submissions',
+    bash_command='cd /home/mahdi_mostafa_2012/git/gcp-project/dubai_api && dbt run --profile big-query --models count_of_submissions',
     dag=dag
 )
 
