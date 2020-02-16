@@ -80,8 +80,8 @@ def top_sub(api):
 def top_data(data):
     top_ten = pd.DataFrame(data)
     top_ten.to_csv(
-        r"~/git/dubai-api/output/raw_daily.csv", index=False)
-    file = "~/git/dubai-api/output/raw_daily.csv"
+        r"~/home/mahdi_mostafa_2012/git/gcp-project/output/raw_daily.csv", index=False)
+    file = "~/home/mahdi_mostafa_2012/git/gcp-project/output/raw_daily.csv"
 
     return file
 
