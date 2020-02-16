@@ -47,4 +47,4 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 ![alt text](https://github.com/mahdimostafa/gcp-project/blob/master/dag_graph_view.png?raw=true)
 # Data Architecture
 
-![alt text](https://github.com/mahdimostafa/gcp-project/blob/master/data.png?raw=true)
+![alt text](https://github.com/mahdimostafa/gcp-project/blob/master/Data.jpg?raw=true)
