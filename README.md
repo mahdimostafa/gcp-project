@@ -1,6 +1,8 @@
 # GCP-Project
 starter project using gcp &amp; dbt
 
+# Build
+This is built on GCE RHEL7
 
 # LOAD SCRIPTS
 
@@ -39,7 +41,7 @@ select * from data_mart.most_upvoted_and_comments limit 10;
 
 ![alt text](https://i.stack.imgur.com/hlYjj.png)
 
-# Cloud Composer/computer engine with airflow installed (WIP)
+# computer engine with airflow installed 
 
 ![alt text](https://github.com/mahdimostafa/gcp-project/blob/master/dag_graph_view.png?raw=true)
 
