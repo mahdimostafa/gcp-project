@@ -9,6 +9,7 @@ with count_of_submissions as(
     select 
           created as created_date
         , count(title) as number_of_posts
+        , max(score)
  
     from  landing.dubai_posts
 
@@ -25,6 +26,4 @@ select
       created_date
     , number_of_posts
 
-
 from count_of_submissions
-
