@@ -21,8 +21,8 @@ with most_upvoted_and_comments as(
 select 
 
       created_date
-    , sum(number_of_upvotes)
-    , sum(number_of_comments)
+    , sum(number_of_upvotes) as number_of_upvotes
+    , sum(number_of_comments) as number_of_comments
 
 from most_upvoted_and_comments
   group by 1
