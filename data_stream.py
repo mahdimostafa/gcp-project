@@ -47,7 +47,8 @@ def top_sub(api):
             "id": [],
             "url": [],
             "comms_num": [],
-            "created": []
+            "created": [],
+            "load_date": []
             }
     
     today_start=dt.datetime.today() - timedelta(days=1)
@@ -66,6 +67,7 @@ def top_sub(api):
         dict["comms_num"].append(submission.num_comments)
         dict["created"].append(dt.datetime.fromtimestamp(
             submission.created).strftime('%Y-%m-%d'))
+        dict["load_date"].append(dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
 
     data = dict
 
@@ -130,6 +132,11 @@ def load_data():
     dataset_id = 'landing'
     dataset_ref = client.dataset(dataset_id)
     job_config = bigquery.LoadJobConfig()
+    # Allows to update with any new schema/field additions. Optional Extra (Required in this case).
+    job_config.write_disposition = bigquery.WriteDisposition.WRITE_APPEND
+    job_config.schema_update_options = [
+        bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
+    ]
     job_config.schema = [
         bigquery.SchemaField("title", "STRING"),
         bigquery.SchemaField("subreddit", "STRING"),
@@ -138,6 +145,7 @@ def load_data():
         bigquery.SchemaField("url", "STRING"),
         bigquery.SchemaField("comms_num", "Integer"),
         bigquery.SchemaField("created", "DATE"),
+        bigquery.SchemaField("load_date", "DATETIME"),
     ]
     job_config.skip_leading_rows = 1
     # The source format defaults to CSV, so the line below is optional.
