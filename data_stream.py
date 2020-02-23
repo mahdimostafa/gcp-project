@@ -41,14 +41,14 @@ def red_connect():
 
 
 def top_sub(api):
-    dict = {"title": [],
+    dict = {
+            "title": [],
             "subreddit": [],
             "score": [],
             "id": [],
             "url": [],
             "comms_num": [],
-            "created": [],
-            "load_date": []
+            "created": []
             }
     
     today_start=dt.datetime.today() - timedelta(days=1)
@@ -57,7 +57,6 @@ def top_sub(api):
     for submission in api.search_submissions(after=start_epoch,
                                 subreddit='dubai',
                                 filter=['title','subreddit', 'score', 'id', 'url', 'comms_num', 'created'],
-                                limit=100
                                 ):
         dict["title"].append(emoji.demojize(submission.title))
         dict['subreddit'].append(submission.subreddit)
@@ -67,7 +66,6 @@ def top_sub(api):
         dict["comms_num"].append(submission.num_comments)
         dict["created"].append(dt.datetime.fromtimestamp(
             submission.created).strftime('%Y-%m-%d'))
-        dict["load_date"].append(dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
 
     data = dict
 
@@ -145,7 +143,6 @@ def load_data():
         bigquery.SchemaField("url", "STRING"),
         bigquery.SchemaField("comms_num", "Integer"),
         bigquery.SchemaField("created", "DATE"),
-        bigquery.SchemaField("load_date", "DATETIME"),
     ]
     job_config.skip_leading_rows = 1
     # The source format defaults to CSV, so the line below is optional.
